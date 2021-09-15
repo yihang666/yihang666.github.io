@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- saved from url=(0378)http://one.zju.edu.cn/pass_code/zx?iportal.uid=16125&iportal.uxid=3160100152&iportal.ualias=&iportal.uname=%E6%9C%B1%E9%80%B8%E8%88%AA&iportal.timestamp=1593009504444&iportal.nonce=9415&iportal.group=%E6%9C%AC%E7%A7%91%E7%94%9F%2C%E5%AD%A6%E7%94%9F&iportal.signature=b227059c873f7b20f95c766a57502394b6835159&iportal.ip=127.0.0.1&ticket=ST-2781671-VeHCMefUd5OHqIgcAfAT-zju.edu.cn -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>浙江大学通行码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="./浙江大学通行码_files/main.css">
+<script src="./浙江大学通行码_files/jquery-1.7.2.min.js.下载"></script><script type="text/javascript" src="./浙江大学通行码_files/jquery.qrcode.min.js.下载"></script><script>setTimeout("location=location; ", (24*3600*1000)*3); </script><script>
+    jQuery(function(){
+
+        var colour = '';
+        var flag = '';
+        if(null == colour || "" == colour){
+            colour = "ff0000";
+        }
+
+
+        var mzt='';
+        var dateTime='';
+        var array=getJkm();
+        if(array.length>0){
+            //mzt = array[0].mzt;
+            mzt='green';
+            dateTime = array[0].dateTime;
+            //dateTime =  '123';
+        }
+        if(mzt!='green'){
+            colour = "ff0000";
+        }
+        if(mzt==''){
+            $("#hzjkm").append('<div  class="hz" style="color: #ff0000">此人携带新冠病毒，请及时隔离</div>');
+        }
+        if(mzt=='yellow'){
+            $("#hzjkm").append('<div  class="hz" style="color: #ee8232">健康码为 黄码</div>');
+        }
+        if(mzt=='red'){
+            $("#hzjkm").append('<div class="hz" style="color: #e8453b">健康码为 红码</div>');
+        }
+
+        if(mzt=='orange'){
+            $("#hzjkm").append('<div class="hz" style="color: #FFA500">健康码为 橙码</div>');
+        }
+        if(mzt=='green'){
+            colour = "ff0000";
+            $("#hzjkm").append('<div class="hz" style="color: #006bc7">健康码获取失败（请打开支付宝出示）</div>');
+        }
+        if(mzt=='' && flag== 'Invalid'){
+            colour = "ff0000";
+        }
+        if(dateTime!=''){
+            $("#dateTime").append('<div class="time">同步时间：'+dateTime+'</div>');
+        }
+
+        // 已删除
+        if('1'  == '1'){
+            colour='ff0000';
+        }
+        // 核酸检测为是
+        if('否'  == '是'){
+            colour='EB6E18';
+        }
+
+        var account='3160100000';
+        jQuery('#output').qrcode({
+            render	: "table",
+            width: 180,
+            height: 180,
+            text	: 'jT6tmuodGqJ8BxagWnLHpQtwBZjkUB5iAoVJHEpu6OYV6OBVW98Nc67C02fq11X6CjXjticyzBU=',
+            render: "canvas", //也可以替换为table
+            //render:table,
+            foreground: "#"+"ff0000",
+            background: "#FFF",
+
+        });
+    })
+
+    function getJkm() {
+        var datas = '';
+        $.ajax({
+            type : "GET",
+
+            async : false,
+            dataType:'json',
+            success : function(data) {
+                datas=data;
+            }
+        });
+        return datas;
+    }
+
+    if(true){
+        //获取系统时间
+        function showTime() {
+            nowtime = new Date();
+            year = nowtime.getFullYear();//年
+            month = nowtime.getMonth() + 1;//月
+            day = nowtime.getDate();//日
+            hour = nowtime.getHours();//时
+            minutes = nowtime.getMinutes(); //分
+            seconds = nowtime.getSeconds(); //秒
+            //文字增加空格
+            document.getElementById("div_timer").style = "white-space:pre;";
+            //显示时间
+            document.getElementById("div_timer").innerText = p(month) + "月" + p(day) + "日 " + p(hour) + ":" + p(minutes) + ":" + p(seconds);
+        }
+        setInterval("showTime()", 1000);
+        //月日时分秒小于10补0
+        function p(s) {
+            return s < 10 ? '0' + s : s;
+        }
+    }
+
+</script></head>
+
+
+
+
+
+
+
+
+
+
+<body class="blue-bg">
+<div class="banner"><img src="./浙江大学通行码_files/text.png"></div>
+
+
+
+
+<div class="content-box">
+    <div class="top-title">
+        <h3>虞嘉媛的通行码</h3>
+        
+
+            <span class="bgr-blue">大师</span>
+            
+
+        
+
+
+    </div>
+    
+        <strong><div class="time2" id="div_timer" style="white-space: pre;">06月24日 22:40:38</div></strong>
+    
+    <div class="qr">
+        
+            <div id="output" style="margin-top: 10px;margin-bottom: 10px"></div>
+        
+        
+        
+        
+
+        
+    </div>
+    
+        
+            <div class="time">有效期：2020-06-24 - 2020-07-04</div>
+        
+    
+
+
+
+    <div id="hzjkm"><div class="hz" style="color: #55b957"></div></div>
+
+
+    <div id="dateTime"><div class="time">同步时间：2020-06-24 18:59:46</div></div>
+    
+        <p class="tip" style="margin-top: 10px;">凭蓝码可在浙江大学校园内通行<br>请主动出示，配合检查</p>
+    
+    
+    <div style="text-align:center; margin-top: 10px">
+        <a target="_blank" href="http://one.zju.edu.cn/taskcenter/wechat/index">办事大厅</a>&nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="http://one.zju.edu.cn/pass_code/zx/getList">申请记录</a>&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+    </div>
+</div>
+<div class="bottom-tip">
+    <h3>安 保 处 ：0571-88206110</h3>
+    <a href="http://xwfw.zju.edu.cn/mobile/redir.php?catalog_id=371039" target="_blank" class="link-btn">常见问题</a>
+    <h3>技术支持：0571-87951669</h3>
+</div>
+
+
+</body></html>
