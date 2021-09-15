@@ -25,7 +25,7 @@
             //dateTime =  '123';
         }
         if(mzt!='green'){
-            colour = "ff0000";
+            colour = "ffd700";
         }
         if(mzt==''){
             $("#hzjkm").append('<div  class="hz" style="color: #ffd700">此人受幸运眷顾，不可能感染</div>');
@@ -41,11 +41,11 @@
             $("#hzjkm").append('<div class="hz" style="color: #FFA500">健康码为 橙码</div>');
         }
         if(mzt=='green'){
-            colour = "ff0000";
+            colour = "ffd700";
             $("#hzjkm").append('<div class="hz" style="color: #006bc7">健康码获取失败（请打开支付宝出示）</div>');
         }
         if(mzt=='' && flag== 'Invalid'){
-            colour = "ff0000";
+            colour = "ffd700";
         }
         if(dateTime!=''){
             $("#dateTime").append('<div class="time">同步时间：'+dateTime+'</div>');
@@ -53,7 +53,7 @@
 
         // 已删除
         if('1'  == '1'){
-            colour='ff0000';
+            colour='ffd700';
         }
         // 核酸检测为是
         if('否'  == '是'){
